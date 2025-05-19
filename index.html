@@ -2,202 +2,143 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escalas de Avaliação</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    section {
-      margin-bottom: 40px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-    }
-    h2 {
-      margin-top: 0;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    select {
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    .resultado {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Escala de Braden -->
-  <section>
-    <h2>Escala de Braden</h2>
-    <form id="form-braden">
-      <label>Percepção sensorial:
-        <select name="sensorial">
-          <option value="1">1 - Muito limitada</option>
-          <option value="2">2 - Muito limitada</option>
-          <option value="3">3 - Ligeiramente limitada</option>
-          <option value="4">4 - Sem limitação</option>
-        </select>
-      </label>
+  <div class="container">
 
-      <label>Umidade:
-        <select name="umidade">
-          <option value="1">1 - Sempre úmido</option>
-          <option value="2">2 - Muito úmido</option>
-          <option value="3">3 - Ocasionalmente úmido</option>
-          <option value="4">4 - Raramente úmido</option>
-        </select>
-      </label>
+    <!-- Escala de Braden -->
+    <section>
+      <h2>Escala de Braden</h2>
+      <form id="form-braden">
+        <label>Percepção sensorial:
+          <select name="sensorial" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Muito limitada</option>
+            <option value="2">2 - Muito limitada</option>
+            <option value="3">3 - Ligeiramente limitada</option>
+            <option value="4">4 - Sem limitação</option>
+          </select>
+        </label>
 
-      <label>Atividade:
-        <select name="atividade">
-          <option value="1">1 - Acamado</option>
-          <option value="2">2 - Cadeira</option>
-          <option value="3">3 - Anda ocasionalmente</option>
-          <option value="4">4 - Anda frequentemente</option>
-        </select>
-      </label>
+        <label>Umidade:
+          <select name="umidade" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Sempre úmido</option>
+            <option value="2">2 - Muito úmido</option>
+            <option value="3">3 - Ocasionalmente úmido</option>
+            <option value="4">4 - Raramente úmido</option>
+          </select>
+        </label>
 
-      <label>Mobilidade:
-        <select name="mobilidade">
-          <option value="1">1 - Completamente imóvel</option>
-          <option value="2">2 - Muito limitada</option>
-          <option value="3">3 - Ligeiramente limitada</option>
-          <option value="4">4 - Sem limitação</option>
-        </select>
-      </label>
+        <label>Atividade:
+          <select name="atividade" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Acamado</option>
+            <option value="2">2 - Cadeira</option>
+            <option value="3">3 - Anda ocasionalmente</option>
+            <option value="4">4 - Anda frequentemente</option>
+          </select>
+        </label>
 
-      <label>Nutrição:
-        <select name="nutricao">
-          <option value="1">1 - Muito pobre</option>
-          <option value="2">2 - Provavelmente inadequada</option>
-          <option value="3">3 - Adequada</option>
-          <option value="4">4 - Excelente</option>
-        </select>
-      </label>
+        <label>Mobilidade:
+          <select name="mobilidade" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Completamente imóvel</option>
+            <option value="2">2 - Muito limitada</option>
+            <option value="3">3 - Ligeiramente limitada</option>
+            <option value="4">4 - Sem limitação</option>
+          </select>
+        </label>
 
-      <label>Atrito e cisalhamento:
-        <select name="atrito">
-          <option value="1">1 - Problema</option>
-          <option value="2">2 - Problema potencial</option>
-          <option value="3">3 - Sem problema aparente</option>
-        </select>
-      </label>
+        <label>Nutrição:
+          <select name="nutricao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Muito pobre</option>
+            <option value="2">2 - Provavelmente inadequada</option>
+            <option value="3">3 - Adequada</option>
+            <option value="4">4 - Excelente</option>
+          </select>
+        </label>
 
-      <button type="submit">Calcular Braden</button>
-      <div class="resultado" id="resultado-braden"></div>
-    </form>
-  </section>
+        <label>Atrito e cisalhamento:
+          <select name="atrito" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1 - Problema</option>
+            <option value="2">2 - Problema potencial</option>
+            <option value="3">3 - Sem problema aparente</option>
+          </select>
+        </label>
 
-  <!-- Escala de Morse -->
-  <section>
-    <h2>Escala de Morse</h2>
-    <form id="form-morse">
-      <label>Histórico de quedas:
-        <select name="quedas">
-          <option value="0">Não</option>
-          <option value="25">Sim</option>
-        </select>
-      </label>
+        <button type="submit">Calcular Braden</button>
+        <div class="resultado" id="resultado-braden"></div>
+      </form>
+    </section>
 
-      <label>Diagnóstico secundário:
-        <select name="diagnostico">
-          <option value="0">Não</option>
-          <option value="15">Sim</option>
-        </select>
-      </label>
+    <!-- Escala de Morse -->
+    <section>
+      <h2>Escala de Morse</h2>
+      <form id="form-morse">
+        <label>Histórico de quedas:
+          <select name="quedas" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Não</option>
+            <option value="25">Sim</option>
+          </select>
+        </label>
 
-      <label>Apoio à deambulação:
-        <select name="apoio">
-          <option value="0">Nenhum</option>
-          <option value="15">Bengala / Andador / Muleta</option>
-          <option value="30">Apoio de móveis</option>
-        </select>
-      </label>
+        <label>Diagnóstico secundário:
+          <select name="diagnostico" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Não</option>
+            <option value="15">Sim</option>
+          </select>
+        </label>
 
-      <label>Terapia intravenosa:
-        <select name="iv">
-          <option value="0">Não</option>
-          <option value="20">Sim</option>
-        </select>
-      </label>
+        <label>Apoio à deambulação:
+          <select name="apoio" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Nenhum</option>
+            <option value="15">Bengala / Andador / Muleta</option>
+            <option value="30">Apoio de móveis</option>
+          </select>
+        </label>
 
-      <label>Marcha:
-        <select name="marcha">
-          <option value="0">Normal / Deambulação com repouso</option>
-          <option value="10">Fraca</option>
-          <option value="20">Comprometida</option>
-        </select>
-      </label>
+        <label>Terapia intravenosa:
+          <select name="iv" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Não</option>
+            <option value="20">Sim</option>
+          </select>
+        </label>
 
-      <label>Estado mental:
-        <select name="mental">
-          <option value="0">Orienta-se com sua própria capacidade</option>
-          <option value="15">Esquece limitações</option>
-        </select>
-      </label>
+        <label>Marcha:
+          <select name="marcha" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Normal / Deambulação com repouso</option>
+            <option value="10">Fraca</option>
+            <option value="20">Comprometida</option>
+          </select>
+        </label>
 
-      <button type="submit">Calcular Morse</button>
-      <div class="resultado" id="resultado-morse"></div>
-    </form>
-  </section>
+        <label>Estado mental:
+          <select name="mental" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="0">Orienta-se com sua própria capacidade</option>
+            <option value="15">Esquece limitações</option>
+          </select>
+        </label>
 
-  <script>
-    // BRADEN
-    document.getElementById('form-braden').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      let total = 0;
-      total += Number(form.sensorial.value);
-      total += Number(form.umidade.value);
-      total += Number(form.atividade.value);
-      total += Number(form.mobilidade.value);
-      total += Number(form.nutricao.value);
-      total += Number(form.atrito.value);
+        <button type="submit">Calcular Morse</button>
+        <div class="resultado" id="resultado-morse"></div>
+      </form>
+    </section>
 
-      let risco = '';
-      if (total <= 9) risco = 'Risco muito alto';
-      else if (total <= 12) risco = 'Risco alto';
-      else if (total <= 14) risco = 'Risco moderado';
-      else if (total <= 18) risco = 'Risco leve';
-      else risco = 'Sem risco';
+  </div>
 
-      document.getElementById('resultado-braden').innerText = `Total: ${total} pontos - ${risco}`;
-    });
-
-    // MORSE
-    document.getElementById('form-morse').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      let total = 0;
-      total += Number(form.quedas.value);
-      total += Number(form.diagnostico.value);
-      total += Number(form.apoio.value);
-      total += Number(form.iv.value);
-      total += Number(form.marcha.value);
-      total += Number(form.mental.value);
-
-      let risco = '';
-      if (total < 25) risco = 'Risco baixo';
-      else if (total <= 50) risco = 'Risco moderado';
-      else risco = 'Risco alto';
-
-      document.getElementById('resultado-morse').innerText = `Total: ${total} pontos - ${risco}`;
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
